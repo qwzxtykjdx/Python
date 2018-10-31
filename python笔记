@@ -81,3 +81,13 @@ Python代码的缩进规则。具有相同缩进的代码被视为代码块
 要避免 KeyError 发生，有两个办法：
 一是先判断一下 key 是否存在，用 in 操作符；
 二是使用dict本身提供的一个 get 方法，在Key不存在的时候，返回None。
+
+Python默认递归次数是1000次,也可以进行修改
+
+更新pip：python -m pip install --upgrade pip
+更新Anaconda:conda install mingw libpython
+查看指定的安装包信息：pip show xxx
+列出所有的安装包：pip list
+监测更新：pip list -outdated
+升级包：pip install --upgrade xxx
+卸载包：pip uninstall xxx                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
