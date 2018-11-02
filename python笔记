@@ -90,4 +90,33 @@ Python默认递归次数是1000次,也可以进行修改
 列出所有的安装包：pip list
 监测更新：pip list -outdated
 升级包：pip install --upgrade xxx
-卸载包：pip uninstall xxx                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
+卸载包：pip uninstall xxx   
+
+tuple比list好的地方：
+	immutable的重要性：
+		性能优化：元素全部为immutable的tuple会作为常量在编译时确定，因此产生如何显著的速度差异
+		线程安全
+		可以作为dict的key
+		拆包特性 
+
+如果一个对象在自己的生命周期中有一哈希值（hash value）是不可改变的，那么它就是可哈希的（hashable）的，因为这些数据结构内置了哈希值，每个可哈希的对象都内置了__hash__方法，所以可哈希的对象可以通过哈希值进行对比，也可以作为字典的键值和作为set函数的参数。所有python中所有不可改变的的对象（imutable objects）都是可哈希的，比如字符串，元组，也就是说可改变的容器如字典，列表不可哈希（unhashable）。我们用户所定义的类的实例对象默认是可哈希的（hashable），它们都是唯一的，而hash值也就是它们的id()。
+
+爬虫：一段自动抓取互联网信息的程序
+
+URL管理器：管理待抓取URL集合和已抓取URL集合 - 防止重复抓取、防止循环抓取
+URL管理器基本功能：
+1.添加新URL到待爬取集合中
+2.判断待添加URL是否在容器中
+3.判断是否还有待爬取URL
+4.获取待爬取URL
+5.将URL从待爬取移动到已爬取
+URL管理器实现方式：内存、关系数据库、缓存数据库（大公司常用）
+
+网页下载器：将互联网上URL对应的网页下载到本地的工具
+Python中的网页下载器：
+urllib2 —— Python官方基础模块
+requests —— 第三方包更强大
+
+网页解析器：从网页中提取有价值数据的工具
+Python中的网页解析器：
+正则表达式、html.parser、Beautiful Soup、lxml
