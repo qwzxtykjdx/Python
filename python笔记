@@ -29,6 +29,22 @@ Python源码不能加密
 
 用记事本和写字板创建的文件，在文件开头会包含特殊字符
 
+python可以在输出语句中使用*，多次输出相同内容
+去掉右边空格的方法：rstrip
+去掉左边空格的方法：lstrip
+去掉两端空格的方法：strip
+使用该方法后需要再次赋值才能让截取效果永久生效
+
+title方法：使每个英文单词的首字母大写
+upper：转换成大写
+lower：转换为小写
+
+ **  表示乘方
+
+ 将数字与字符串共同输出的时候，需要将数字用str方法进行处理，否则会报错
+
+ 查看Python之禅：import this
+
 十六进制用0x前缀和0-9，a-f表示
 整数运算永远是精确的（包括除法），而浮点数运算可能会有四舍五入的误差
 空值是Python里一个特殊的值，用None表示。None不能理解为0，因为0是有意义的，而None是一个特殊的空值。
@@ -68,6 +84,15 @@ Python把0、空字符串''和None看成 False，其他数值和非空字符串�
 Python内置的一种数据类型是列表：list。list是一种有序的集合，可以随时添加和删除其中的元素。
 list是数学意义上的有序集合，也就是说，list中的元素是按照顺序排列的。
 由于Python是动态语言，所以list中包含的元素并不要求都必须是同一种数据类型。
+
+list使用append方法将元素加在列表最后，使用insert方法在指定位置插入新元素，使用del方法删除指定位置的元素，使用pop方法删除最后一个元素或弹出特定位置的元素并继续使用，使用remove方法删除指定的元素（元素多次出现，只删除一次）。
+sort方法永久排序，默认从小到大，从大到小添加参数reverse=True，sorted临时排序不影响原列表元素顺序，也可以添加参数reverse=True
+reverse反转列表元素顺序，永久改变，再使用一次reverse列表则不发生任何变化
+len获取列表长度，索引从0开始
+
+使用 变量名[:] 的方式复制列表 创建副本 此种方法类似于深复制，如果是直接将列表赋值给一个变量 传递原件 此种方法类似于浅复制
+
+range函数生成一系列数字，参数为左闭右开区间，range函数作为list方法的参数创建数字列表
 
 tuple是另一种有序的列表，中文翻译为“ 元组 ”。tuple 和 list 非常类似，但是，tuple一旦创建完毕，就不能修改了。
 创建tuple和创建list唯一不同之处是用( )替代了[ ]。
@@ -120,3 +145,37 @@ requests —— 第三方包更强大
 网页解析器：从网页中提取有价值数据的工具
 Python中的网页解析器：
 正则表达式、html.parser、Beautiful Soup、lxml
+
+Beautiful Soup将复杂HTML文档转换成一个复杂的树形结构,每个节点都是Python对象,所有对象可以归纳为4种:
+	Tag
+	NavigableString
+	BeautifulSoup
+	Comment
+
+查看Google浏览器版本信息：chrome://version/
+win+r，输入sysdm.cpl：打开系统属性设置窗口
+win+r,输入cmd，同时按住Ctrl+Shift+Enter：以管理员身份打开dos窗口
+
+安装Scrapy所需的包,按顺序安装
+zope.interface、pyOpenSSL、twisted
+libxml2、lxml
+最后安装Scrapy
+
+dos窗口下查看文件内容：type
+
+使用Django创建Web项目
+1.创建虚拟环境：python -m  venv ll_env
+2.激活虚拟环境：
+	linux：source ll_env/bin/activate 
+	windows：ll_env\Scripts\activate
+停止虚拟环境：deactivate
+3.安装Django：pip install Django
+4.在Django中创建项目：django-admin.py startproject learning_log .（末尾的句点很重要，不能忘记）
+5.安装数据库：python manage.py migrate
+6.查看项目：python manage.py 
+runserver（如果端口号被占用，直接在该命令后面指定端口号）
+7.创建应用程序：python manage.py startapp learning_logs
+8.确定数据库的修改方式：python manage.py makemigrations learning_logs
+9.让Django迁移项目：python manage.py migrate 
+10：创建超级用户：python manage.py createsuperuser
+11.每当models.py当中添加新的类时，就需要重新确定数据库的修改方式：python manage.py makemigrations learning_logs 并再次迁移项目：python manage.py migrate
